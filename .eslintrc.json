@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true,
+        "jest/globals": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:testing-library/react",
+        "plugin:jest/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "settings": {
+        "jest": { "version": 27 }
+    },
+    "plugins": ["react", "react-hooks", "jsx-a11y", "testing-library", "jest"],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "arrow-parens": ["warn", "as-needed"],
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "importer/prefer-default-export": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "warn",
+        "react-hooks/exhaustive-deps": "warn",
+        "no-underscore-dangle": "off",
+        "jsx-a11y/alt-text": 2
+    }
+}

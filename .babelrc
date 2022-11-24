@@ -1,0 +1,7 @@
+{
+    "presets": [
+        ["@babel/preset-env", { "target": { "ie": 11 }, "modules": "cjs" }],
+        ["@babel/preset-react"]
+    ],
+    "plugins": [["@babel/plugin-transform-runtime", { "corejs": 3 }]]
+}
