@@ -1,19 +1,34 @@
 import loadable, { lazy } from '@loadable/component';
 
-import Loader from '@layout/Loader';
+import Loader from '@/layout/Loader';
 
 const Main = loadable(() => import('./pages'));
-const Detail = lazy(() => import('./'), {
-    fallback: <Loader />,
-});
-const PostAdd = lazy(() => import('./'), {
+const NotificationRegistration = lazy(
+    () => import('./pages/notification/Registration'),
+    {
+        fallback: <Loader />,
+    },
+);
+const Admin = lazy(() => import('./'), {
     fallback: <Loader />,
 });
 
 const routes = [
-    { path: '/', exact: true, name: 'Main', component: Main },
-    /* { path: '/detail', exact: true, name: 'Detail', component: Detail },
-    { path: '/postadd', exact: true, name: 'Post Add', component: PostAdd }, */
+    {
+        path: '/',
+        exact: true,
+        component: Main,
+    },
+    {
+        path: '/',
+        exact: true,
+        component: NotificationRegistration,
+    },
+    {
+        path: '/admin',
+        exact: true,
+        component: Admin,
+    },
 ];
 
 export default routes;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Main from './Main';
+import PagesInfo from '@/pages/index';
 
 import './styles/index.css';
 
@@ -16,7 +16,7 @@ const prepare = async () => {
 prepare().then(() => {
     ReactDOM.createRoot(document.getElementById('root')).render(
         <React.StrictMode>
-            <Main />
+            <PagesInfo />
         </React.StrictMode>,
     );
 });

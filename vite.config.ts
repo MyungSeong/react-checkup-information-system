@@ -16,7 +16,7 @@ export default defineConfig({
         tsConfigPaths(),
         checkerPlugin({
             typescript: true,
-            eslint: { lintCommand: 'eslint --ext .js,.jsx,.ts,.tsx .' },
+            eslint: { lintCommand: 'eslint --ext .js,.jsx,.ts,.tsx ./src' },
         }),
     ],
 });
