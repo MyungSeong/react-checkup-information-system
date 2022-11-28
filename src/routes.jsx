@@ -1,15 +1,15 @@
 import loadable, { lazy } from '@loadable/component';
 
-import Loader from '@/layout/Loader';
+import Loader from '@layout/Loader';
 
-const Main = loadable(() => import('./pages'));
+const Main = loadable(() => import('./pages'), { fallback: <Loader /> });
 const NotificationRegistration = lazy(
     () => import('./pages/notification/Registration'),
     {
         fallback: <Loader />,
     },
 );
-const Admin = lazy(() => import('./'), {
+const Admin = lazy(() => import('.'), {
     fallback: <Loader />,
 });
 
@@ -20,7 +20,7 @@ const routes = [
         component: Main,
     },
     {
-        path: '/',
+        path: '/notification/registration',
         exact: true,
         component: NotificationRegistration,
     },

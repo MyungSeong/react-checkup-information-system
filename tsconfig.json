@@ -17,19 +17,19 @@
         "jsx": "react-jsx",
         "baseUrl": "./src",
         "paths": {
-            "@/routes": ["./routes"],
-            "@/reduxConfig": ["./redux"],
-            "@/lib": ["./utils/lib"],
+            "@routes": ["./routes"],
+            "@reduxConfig": ["./redux"],
+            "@lib": ["./utils/lib"],
 
-            "@/root/*": ["./*"],
-            "@/api/*": ["./api/*"],
-            "@/assets/*": ["./assets/*"],
-            "@/pages/*": ["./pages/*"],
-            "@/layout/*": ["./layout/*"],
-            "@/styles/*": ["./styles/*"],
-            "@/constants/*": ["./utils/constants/*"],
-            "@/lib/*": ["./utils/lib/*"],
-            "@/redux/*": ["./redux/modules/*"]
+            "@root/*": ["./*"],
+            "@api/*": ["./api/*"],
+            "@assets/*": ["./assets/*"],
+            "@pages/*": ["./pages/*"],
+            "@layout/*": ["./layout/*"],
+            "@styles/*": ["./styles/*"],
+            "@constants/*": ["./utils/constants/*"],
+            "@lib/*": ["./utils/lib/*"],
+            "@redux/*": ["./redux/modules/*"]
         }
     },
     "include": ["src"],

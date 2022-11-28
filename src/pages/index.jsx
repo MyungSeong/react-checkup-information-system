@@ -1,10 +1,10 @@
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import Modal from 'react-modal';
 
-import { BASENAME } from '@/constants/Config';
-import { history } from '@/reduxConfig';
-import routes from '@/routes';
+import { BASENAME } from '@constants/Config';
+import { history } from '@reduxConfig';
+import routes from '@routes';
 
 const PagesInfo = () => {
     const pages = routes.map((route, index) => {
@@ -22,7 +22,7 @@ const PagesInfo = () => {
         <>
             <ConnectedRouter history={history}>
                 {pages}
-                <Redirect from='/' to={BASENAME} />
+                {/* <Redirect from='/' to={BASENAME} /> */}
             </ConnectedRouter>
         </>
     );
