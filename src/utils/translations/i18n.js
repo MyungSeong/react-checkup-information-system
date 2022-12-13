@@ -2,28 +2,23 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-const resources = {
-    en: {
-        translation: {},
-    },
-    jp: {
-        translation: {},
-    },
-    kr: {
-        translation: {},
-    },
-};
+import * as resources from './resources';
 
 i18n.use(initReactI18next)
     .use(LanguageDetector)
     .init({
-        resources,
+        resources: {
+            ...Object.entries(resources).reduce((acc, [key, value]) => ({
+                ...acc,
+                [key]: {
+                    translation: value,
+                },
+            })),
+        },
+        lng: 'kr',
         fallbackLng: 'kr',
-        debug: true,
         interpolation: { escapeValue: true },
         returnObjects: true,
-        returnEmptyString: true,
-        returnNull: true,
     });
 
 export default i18n;

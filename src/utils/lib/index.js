@@ -1,5 +1,5 @@
 export { default as APIManager } from './APIManager';
-export { default as i18n } from './i18n';
+export { default as i18n } from '../translations/i18n';
 
 /*  timestamp 날짜형식 변환  */
 const timestampDefaultFormat = {
@@ -65,11 +65,7 @@ export const momentDateToString = (value) => {
 
 export const setSession = (key, value) => {
     window.sessionStorage.setItem(key, JSON.stringify(value));
-    if (getSession(key) !== null) {
-        return true;
-    } else {
-        return false;
-    }
+    return getSession(key) !== null;
 };
 
 export const getSession = (key) => {
@@ -101,4 +97,10 @@ export const getDiffBetweenTwoDatesInDays = (date, compareDate) => {
     if (diffInDays < 0) {
         return diffInDays;
     }
+};
+
+export const validateId = (id) => {
+    const pattern = /^[a-zA-Z0-9]+$/;
+
+    return pattern.test(id);
 };

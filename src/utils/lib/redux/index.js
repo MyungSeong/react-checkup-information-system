@@ -5,8 +5,11 @@ import {
     legacy_createStore,
 } from 'redux';
 import thunk from 'redux-thunk';
-import { createBrowserHistory } from '@remix-run/router';
-import { connectRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
+import {
+    createRouterMiddleware,
+    createRouterReducer,
+} from '@lagunovsky/redux-react-router';
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -14,14 +17,18 @@ import { UserInfo } from './modules';
 
 export const history = createBrowserHistory();
 
-const middlewares = [thunk.withExtraArgument({ history })];
+const routerMiddleware = createRouterMiddleware(history);
+
+const middlewares = [thunk.withExtraArgument({ history }), routerMiddleware];
 
 const reducers = combineReducers({
     UserInfo,
-    router: connectRouter(history),
+    navigator: createRouterReducer(history),
 });
 
 let store;
+
+export const routerSelector = (state) => state.navigator;
 
 if (import.meta.env.PROD) {
     store = legacy_createStore(

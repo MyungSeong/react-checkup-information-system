@@ -1,30 +1,37 @@
-import { Route } from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router';
+import { Fragment } from 'react';
+import { Route, Routes, useRoutes } from 'react-router-dom';
+import { ReduxRouter } from '@lagunovsky/redux-react-router';
 import Modal from 'react-modal';
 
 import { BASENAME } from '@constants/Config';
-import { history } from '@reduxConfig';
+import { history, routerSelector } from '@reduxConfig';
 import routes from '@routes';
 
 const PagesInfo = () => {
     const pages = routes.map((route, index) => {
+        const Layout = route.layout || Fragment;
+        const Component = route.component;
+
         return route.component ? (
             <Route
                 key={index}
                 path={route.path}
-                exact={route.exact}
-                render={(props) => <route.component {...props} />}
+                element={
+                    <Layout>
+                        <Component />
+                    </Layout>
+                }
             />
         ) : null;
     });
 
     return (
-        <>
-            <ConnectedRouter history={history}>
+        <ReduxRouter history={history} routerSelector={routerSelector}>
+            <Routes>
                 {pages}
                 {/* <Redirect from='/' to={BASENAME} /> */}
-            </ConnectedRouter>
-        </>
+            </Routes>
+        </ReduxRouter>
     );
 };
 

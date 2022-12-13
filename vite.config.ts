@@ -15,6 +15,7 @@ export default defineConfig({
         }),
         tsConfigPaths(),
         checkerPlugin({
+            overlay: { initialIsOpen: false },
             typescript: true,
             eslint: { lintCommand: 'eslint --ext .js,.jsx,.ts,.tsx ./src' },
         }),

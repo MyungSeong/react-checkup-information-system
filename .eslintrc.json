@@ -21,6 +21,7 @@
         "sourceType": "module"
     },
     "settings": {
+        "react": { "version": "detect" },
         "jest": { "version": 27 }
     },
     "plugins": ["react", "react-hooks", "jsx-a11y", "testing-library", "jest"],

@@ -18,18 +18,19 @@
         "baseUrl": "./src",
         "paths": {
             "@routes": ["./routes"],
-            "@reduxConfig": ["./redux"],
+            "@reduxConfig": ["./utils/lib/redux"],
             "@lib": ["./utils/lib"],
 
             "@root/*": ["./*"],
             "@api/*": ["./api/*"],
             "@assets/*": ["./assets/*"],
+            "@components/*": ["./components/*"],
             "@pages/*": ["./pages/*"],
             "@layout/*": ["./layout/*"],
             "@styles/*": ["./styles/*"],
             "@constants/*": ["./utils/constants/*"],
             "@lib/*": ["./utils/lib/*"],
-            "@redux/*": ["./redux/modules/*"]
+            "@redux/*": ["./utils/lib/redux/modules/*"]
         }
     },
     "include": ["src"],

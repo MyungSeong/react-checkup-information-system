@@ -22,3 +22,5 @@ const UsersAction = {
         }
     },
 };
+
+export default UsersAction;
